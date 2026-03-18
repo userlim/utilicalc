@@ -40,7 +40,7 @@ export default function SearchBar() {
         <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-300 text-base">&#128269;</span>
         <input
           type="text"
-          placeholder={tr('searchPlaceholder')}
+          placeholder="Search tools... (e.g. inches, tip, age)"
           value={query}
           onChange={e => { setQuery(e.target.value); setOpen(true) }}
           onFocus={() => setOpen(true)}
