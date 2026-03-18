@@ -12,11 +12,11 @@ export default function HomeContent() {
 
   return (
     <>
-      <section className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 gradient-text">
+      <section className="text-center mb-10">
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-3" style={{ color: 'var(--text)' }}>
           {t('heroTitle')}
         </h1>
-        <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
+        <p className="text-base text-gray-400 max-w-lg mx-auto mb-8">
           {t('heroSubtitle')}
         </p>
         <SearchBar />
@@ -28,20 +28,20 @@ export default function HomeContent() {
       {categories.map(cat => {
         const catTools = getToolsByCategory(cat.slug)
         return (
-          <section key={cat.slug} className="mb-12">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-extrabold text-purple-800">{t(cat.slug)}</h2>
-              <Link href={`/category/${cat.slug}`} className="text-sm text-purple-500 hover:text-purple-700 hover:underline font-semibold">
+          <section key={cat.slug} className="mb-10">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-xl font-bold" style={{ color: 'var(--text)' }}>{t(cat.slug)}</h2>
+              <Link href={`/category/${cat.slug}`} className="text-sm hover:underline font-medium" style={{ color: 'var(--accent)' }}>
                 {t('viewAll')}
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {catTools.map(tool => (
                 <Link key={tool.slug} href={`/tools/${tool.slug}`} className="card group">
-                  <h3 className="font-bold text-purple-800 group-hover:text-purple-500 transition mb-2">
+                  <h3 className="font-bold group-hover:opacity-70 transition mb-1" style={{ color: 'var(--accent)' }}>
                     {t(tool.slug)}
                   </h3>
-                  <p className="text-sm text-gray-500">{tool.description}</p>
+                  <p className="text-sm text-gray-400 leading-relaxed">{tool.description}</p>
                 </Link>
               ))}
             </div>
@@ -49,10 +49,10 @@ export default function HomeContent() {
         )
       })}
 
-      <section className="mt-16 prose prose-purple max-w-none">
-        <h2 className="text-purple-800">{t('whyUse')}</h2>
-        <p>{t('whyText1')}</p>
-        <p>{t('whyText2')}</p>
+      <section className="mt-12 max-w-none">
+        <h2 className="text-lg font-bold mb-2" style={{ color: 'var(--text)' }}>{t('whyUse')}</h2>
+        <p className="text-sm text-gray-400 leading-relaxed mb-2">{t('whyText1')}</p>
+        <p className="text-sm text-gray-400 leading-relaxed">{t('whyText2')}</p>
       </section>
     </>
   )

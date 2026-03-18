@@ -23,22 +23,21 @@ export default function LanguageSwitcher() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-purple-100 hover:bg-purple-200 rounded-2xl transition text-purple-700 font-bold"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition text-gray-600"
         aria-label={t('language')}
       >
         <span>{current?.flag}</span>
-        <span className="hidden sm:inline">{current?.name}</span>
-        <span className="text-xs">&#9660;</span>
+        <span className="hidden sm:inline text-xs">{current?.name}</span>
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 bg-white border-2 border-purple-100 rounded-2xl shadow-xl z-50 w-56 max-h-80 overflow-y-auto">
+        <div className="absolute right-0 top-full mt-1.5 bg-white border border-gray-200 rounded-xl shadow-lg z-50 w-48 max-h-72 overflow-y-auto">
           {LANGUAGES.map(l => (
             <button
               key={l.code}
               onClick={() => { setLang(l.code); setOpen(false) }}
-              className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2 hover:bg-purple-50 transition ${
-                lang === l.code ? 'bg-purple-50 text-purple-600 font-bold' : 'text-gray-700'
+              className={`w-full text-left px-3 py-2 text-sm flex items-center gap-2 hover:bg-gray-50 transition ${
+                lang === l.code ? 'bg-gray-50 font-semibold text-gray-900' : 'text-gray-600'
               }`}
             >
               <span>{l.flag}</span>

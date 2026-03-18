@@ -10,71 +10,65 @@ interface Props {
   children: React.ReactNode
   faq?: { q: string; a: string }[]
   formula?: string
-  resultText?: string // text to copy
+  resultText?: string
 }
 
 export default function ToolLayout({ tool, children, faq, formula, resultText }: Props) {
   const { t } = useLang()
-  // Get related tools (same category, excluding current)
   const related = tools.filter(r => r.categorySlug === tool.categorySlug && r.slug !== tool.slug).slice(0, 3)
 
   return (
     <div className="max-w-2xl mx-auto">
       {/* Breadcrumb */}
-      <nav className="text-sm text-gray-400 mb-4">
-        <Link href="/" className="hover:text-purple-600">{t('home')}</Link>
+      <nav className="text-xs text-gray-400 mb-4">
+        <Link href="/" className="hover:text-gray-600">{t('home')}</Link>
         {' / '}
-        <Link href={`/category/${tool.categorySlug}`} className="hover:text-purple-600">{t(tool.categorySlug)}</Link>
+        <Link href={`/category/${tool.categorySlug}`} className="hover:text-gray-600">{t(tool.categorySlug)}</Link>
         {' / '}
-        <span className="text-purple-600">{t(tool.slug)}</span>
+        <span className="text-gray-600">{t(tool.slug)}</span>
       </nav>
 
-      <h1 className="text-3xl font-extrabold text-purple-800 mb-2">{t(tool.slug)}</h1>
-      <p className="text-gray-500 mb-6">{tool.description}</p>
+      <h1 className="text-2xl font-bold mb-1" style={{ color: 'var(--text)' }}>{t(tool.slug)}</h1>
+      <p className="text-sm text-gray-400 mb-6">{tool.description}</p>
 
-      {/* Calculator */}
       <div className="card mb-4">
         {children}
       </div>
 
-      {/* Copy result button */}
       {resultText && (
-        <div className="flex justify-end mb-8">
+        <div className="flex justify-end mb-6">
           <CopyButton text={resultText} />
         </div>
       )}
 
-      {/* Formula */}
       {formula && (
-        <div className="bg-purple-50 border-2 border-purple-100 rounded-2xl p-4 mb-8">
-          <h2 className="font-bold text-purple-800 mb-1">{t('formula')}</h2>
-          <p className="text-purple-700 font-mono text-sm">{formula}</p>
+        <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-6">
+          <h2 className="font-semibold text-gray-700 mb-1 text-sm">{t('formula')}</h2>
+          <p className="text-gray-600 font-mono text-sm">{formula}</p>
         </div>
       )}
 
-      {/* FAQ — structured data for SEO */}
       {faq && faq.length > 0 && (
-        <div className="mb-8">
-          <h2 className="text-xl font-extrabold text-purple-800 mb-4">{t('faq')}</h2>
+        <div className="mb-6">
+          <h2 className="text-base font-bold text-gray-800 mb-3">{t('faq')}</h2>
           {faq.map((item, i) => (
-            <details key={i} className="mb-3 border-2 border-purple-100 rounded-2xl">
-              <summary className="cursor-pointer p-4 font-bold text-purple-800 hover:bg-purple-50 transition rounded-2xl">
+            <details key={i} className="mb-2 border border-gray-200 rounded-xl">
+              <summary className="cursor-pointer p-3 font-medium text-gray-700 hover:bg-gray-50 transition rounded-xl text-sm">
                 {item.q}
               </summary>
-              <p className="px-4 pb-4 text-gray-600 text-sm">{item.a}</p>
+              <p className="px-3 pb-3 text-gray-500 text-sm">{item.a}</p>
             </details>
           ))}
         </div>
       )}
 
-      {/* Related tools */}
       {related.length > 0 && (
-        <div className="mb-8">
-          <h2 className="text-lg font-extrabold text-purple-800 mb-3">{t('relatedTools')}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="mb-6">
+          <h2 className="text-sm font-bold text-gray-700 mb-2">{t('relatedTools')}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
             {related.map(r => (
-              <Link key={r.slug} href={`/tools/${r.slug}`} className="card text-center group py-4">
-                <span className="font-bold text-purple-800 group-hover:text-purple-500 transition text-sm">
+              <Link key={r.slug} href={`/tools/${r.slug}`} className="card text-center group py-3">
+                <span className="font-semibold text-gray-700 group-hover:opacity-70 transition text-sm">
                   {t(r.slug)}
                 </span>
               </Link>
