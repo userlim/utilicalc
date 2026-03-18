@@ -23,7 +23,7 @@ export default function LanguageSwitcher() {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-gray-100 hover:bg-gray-200 rounded-lg transition text-gray-700"
+        className="flex items-center gap-1.5 px-3 py-1.5 text-sm bg-purple-100 hover:bg-purple-200 rounded-2xl transition text-purple-700 font-bold"
         aria-label={t('language')}
       >
         <span>{current?.flag}</span>
@@ -32,13 +32,13 @@ export default function LanguageSwitcher() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 bg-white border border-gray-200 rounded-xl shadow-xl z-50 w-56 max-h-80 overflow-y-auto">
+        <div className="absolute right-0 top-full mt-2 bg-white border-2 border-purple-100 rounded-2xl shadow-xl z-50 w-56 max-h-80 overflow-y-auto">
           {LANGUAGES.map(l => (
             <button
               key={l.code}
               onClick={() => { setLang(l.code); setOpen(false) }}
-              className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2 hover:bg-blue-50 transition ${
-                lang === l.code ? 'bg-blue-50 text-blue-600 font-medium' : 'text-gray-700'
+              className={`w-full text-left px-4 py-2.5 text-sm flex items-center gap-2 hover:bg-purple-50 transition ${
+                lang === l.code ? 'bg-purple-50 text-purple-600 font-bold' : 'text-gray-700'
               }`}
             >
               <span>{l.flag}</span>

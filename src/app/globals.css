@@ -2,51 +2,164 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
 :root {
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --bg: #f8fafc;
+  --primary: #8b5cf6;
+  --primary-light: #a78bfa;
+  --primary-dark: #7c3aed;
+  --bg: #faf5ff;
   --card: #ffffff;
-  --text: #0f172a;
-  --text-muted: #64748b;
-  --border: #e2e8f0;
+  --text: #1e1b4b;
+  --text-muted: #6b7280;
+  --border: #e9d5ff;
 }
 
 body {
   color: var(--text);
   background: var(--bg);
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+/* ===== Input & Result ===== */
 .tool-input {
-  @apply w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition;
+  @apply w-full px-4 py-3 text-lg border-2 border-purple-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent bg-white;
+  transition: all 0.3s ease;
+}
+
+.tool-input:focus {
+  transform: scale(1.01);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
 }
 
 .tool-result {
-  @apply text-3xl font-bold text-blue-600 text-center py-6;
+  @apply text-3xl font-extrabold text-purple-600 text-center py-6;
+  animation: fadeInUp 0.4s ease;
 }
 
+/* ===== Primary Button - Gradient + Glow ===== */
 .btn-primary {
-  @apply px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition active:scale-95;
+  @apply px-6 py-3 text-white font-bold rounded-2xl active:scale-95;
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa, #c084fc);
+  background-size: 200% 200%;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+.btn-primary:hover {
+  background-position: right center;
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  transform: scale(0.97) translateY(0);
+}
+
+/* Button shine effect */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    transparent 100%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-primary:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+/* ===== Card - Soft float ===== */
 .card {
-  @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition;
+  @apply bg-white rounded-3xl border-2 border-purple-100 p-6;
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.06);
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Mobile safe area for bottom nav */
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.12);
+  border-color: #c4b5fd;
+}
+
+/* ===== Popular tool pills - bounce on hover ===== */
+.tool-pill {
+  @apply flex items-center gap-2 px-4 py-2.5 bg-white border-2 border-purple-100 rounded-full text-sm font-bold text-purple-700;
+  transition: all 0.3s ease;
+}
+
+.tool-pill:hover {
+  border-color: #a78bfa;
+  background: #f5f3ff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.15);
+}
+
+.tool-pill:active {
+  transform: scale(0.96);
+}
+
+/* ===== Mobile safe area for bottom nav ===== */
 .safe-area-bottom {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Smooth scroll */
+/* ===== Smooth scroll ===== */
 html {
   scroll-behavior: smooth;
 }
 
-/* Better tap targets on mobile */
+/* ===== Better tap targets on mobile ===== */
 @media (max-width: 768px) {
   .tool-input {
     @apply text-base py-4;
     font-size: 16px; /* prevents iOS zoom */
   }
+}
+
+/* ===== Cute selection color ===== */
+::selection {
+  background: #c4b5fd;
+  color: #1e1b4b;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Hero title gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle page load animation */
+main {
+  animation: fadeInUp 0.5s ease;
 }

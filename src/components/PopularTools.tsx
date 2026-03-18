@@ -17,7 +17,7 @@ export default function PopularTools() {
 
   return (
     <section className="mb-12">
-      <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-4 text-center">
+      <h2 className="text-sm font-bold text-purple-300 uppercase tracking-wide mb-4 text-center">
         {t('popularTools')}
       </h2>
       <div className="flex flex-wrap justify-center gap-3">
@@ -25,7 +25,7 @@ export default function PopularTools() {
           <Link
             key={p.slug}
             href={`/tools/${p.slug}`}
-            className="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-full hover:border-blue-400 hover:bg-blue-50 hover:shadow-sm transition text-sm font-medium text-gray-700"
+            className="tool-pill"
           >
             <span>{p.icon}</span>
             {t(p.slug)}
