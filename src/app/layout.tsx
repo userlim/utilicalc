@@ -7,11 +7,11 @@ import Footer from '@/components/Footer'
 import MobileNav from '@/components/MobileNav'
 
 export const metadata: Metadata = {
-  title: 'UtiliCalc – Free Online Calculators & Converters',
+  title: 'UtiliCalc ??Free Online Calculators & Converters',
   description: 'Free online utility calculators and unit converters. Convert units, calculate percentages, tips, discounts, dates, and more. Fast, accurate, no signup required.',
   metadataBase: new URL('https://utilicalc.vercel.app'),
   openGraph: {
-    title: 'UtiliCalc – Free Online Calculators & Converters',
+    title: 'UtiliCalc ??Free Online Calculators & Converters',
     description: 'Free online utility calculators and unit converters. Fast, accurate, no signup required.',
     type: 'website',
     siteName: 'UtiliCalc',
@@ -24,6 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="hsjncRi9cl3tz3Otd6SJKurSt_V1bZ0AKO-bdWIGeHM" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-P08T3SZDQH" strategy="afterInteractive" />
