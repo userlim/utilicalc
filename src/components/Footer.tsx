@@ -17,6 +17,14 @@ export default function Footer() {
             </Link>
           ))}
         </div>
+        <div className="flex flex-wrap justify-center gap-6 mb-4 text-sm text-gray-400">
+          <Link href="/privacy-policy" className="hover:text-gray-600 transition">
+            Privacy Policy
+          </Link>
+          <Link href="/terms" className="hover:text-gray-600 transition">
+            Terms of Service
+          </Link>
+        </div>
         <div className="text-center text-xs text-gray-300">
           © {new Date().getFullYear()} UtiliCalc. {t('footerText')}
         </div>
