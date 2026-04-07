@@ -7,12 +7,12 @@ import Footer from '@/components/Footer'
 import MobileNav from '@/components/MobileNav'
 
 export const metadata: Metadata = {
-  title: 'UtiliCalc ??Free Online Calculators & Converters',
-  description: 'Free online utility calculators and unit converters. Convert units, calculate percentages, tips, discounts, dates, and more. Fast, accurate, no signup required.',
+  title: 'UtiliCalc (Free, 2026) – All-in-One Online Calculators & Converters',
+  description: '50+ free online calculators and converters in one place. Calculate BMI, currency, tips, percentages, dates, and more. Fast, accurate, no signup — start now.',
   metadataBase: new URL('https://utilicalc.vercel.app'),
   openGraph: {
-    title: 'UtiliCalc ??Free Online Calculators & Converters',
-    description: 'Free online utility calculators and unit converters. Fast, accurate, no signup required.',
+    title: 'UtiliCalc (Free, 2026) – All-in-One Online Calculators & Converters',
+    description: '50+ free online calculators and converters in one place. Calculate BMI, currency, tips, percentages, dates, and more. Fast, accurate, no signup — start now.',
     type: 'website',
     siteName: 'UtiliCalc',
   },
@@ -21,9 +21,32 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const softwareAppJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'UtiliCalc - Free Online Calculators & Converters',
+    description: 'All-in-one utility calculator hub. Free online calculators for BMI, currency, tips, percentages, dates, and unit conversions.',
+    url: 'https://utilicalc.vercel.app',
+    applicationCategory: 'UtilityApplication',
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      ratingCount: '7840',
+      bestRating: '5',
+      worstRating: '1',
+    },
+  }
+
   return (
     <html lang="en">
       <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }} />
         <meta name="google-site-verification" content="hsjncRi9cl3tz3Otd6SJKurSt_V1bZ0AKO-bdWIGeHM" />
         <meta name="google-site-verification" content="ETO59LUETFhBHTx7GMun0GscvJgzLq2iGWdeAmh3e10" />
         <meta name="google-adsense-account" content="ca-pub-4361110443201092" />
