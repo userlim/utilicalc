@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Terms of Service - UtiliCalc',
   description: 'Terms of Service for UtiliCalc.',
+  robots: { index: false, follow: true },
 }
 
 export default function TermsOfService() {

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Privacy Policy - UtiliCalc',
   description: 'Privacy Policy for UtiliCalc. Learn how we collect, use, and protect your information.',
+  robots: { index: false, follow: true },
 }
 
 export default function PrivacyPolicy() {

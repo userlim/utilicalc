@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'UtiliCalc',
   },
+    twitter: {
+    card: 'summary_large_image',
+    title: 'UtiliCalc — 50+ Free Calculators',
+    description: '50+ Free Calculators',
+  },
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
 }
