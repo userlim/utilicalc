@@ -54,6 +54,37 @@ export default function HomeContent() {
         <p className="text-sm text-gray-400 leading-relaxed mb-2">{t('whyText1')}</p>
         <p className="text-sm text-gray-400 leading-relaxed">{t('whyText2')}</p>
       </section>
+
+      {/* About Section for SEO */}
+      <section className="mt-8 max-w-3xl mx-auto">
+        <h2 className="text-lg font-bold mb-3" style={{ color: 'var(--text)' }}>About UtiliCalc</h2>
+        <p className="text-sm text-gray-400 leading-relaxed">
+          UtiliCalc is your all-in-one hub for 50+ free online calculators and converters. From unit conversions (cups to ml, fahrenheit to celsius) to financial tools (loan calculator, tip calculator), every tool is free, instant, and requires no signup. Built for speed and accuracy, UtiliCalc works on any device — desktop, tablet, or mobile.
+        </p>
+      </section>
+
+      {/* FAQ Section for SEO */}
+      <section id="faq-section" className="mt-8 max-w-3xl mx-auto">
+        <h2 className="text-lg font-bold mb-4" style={{ color: 'var(--text)' }}>Frequently Asked Questions</h2>
+        <div className="space-y-4">
+          <div>
+            <h3 className="font-semibold mb-1" style={{ color: 'var(--text)' }}>Is UtiliCalc really free?</h3>
+            <p className="text-sm text-gray-400">Yes, all 50+ calculators and converters are completely free with no signup, no ads paywall, and no usage limits.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-1" style={{ color: 'var(--text)' }}>What types of calculators are available?</h3>
+            <p className="text-sm text-gray-400">We offer unit converters (length, weight, temperature, volume), financial calculators (tips, percentages, discounts), date &amp; time tools, text utilities, and more — organized by category for easy browsing.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-1" style={{ color: 'var(--text)' }}>Do the calculators work offline?</h3>
+            <p className="text-sm text-gray-400">Most calculators work entirely in your browser and don&apos;t require an internet connection after the page loads. Some tools that fetch live data (like currency rates) do need connectivity.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold mb-1" style={{ color: 'var(--text)' }}>Can I use UtiliCalc on my phone?</h3>
+            <p className="text-sm text-gray-400">Absolutely. UtiliCalc is fully responsive and optimized for mobile, tablet, and desktop. All tools work seamlessly on any screen size.</p>
+          </div>
+        </div>
+      </section>
     </>
   )
 }
