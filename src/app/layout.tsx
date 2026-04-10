@@ -9,10 +9,14 @@ import MobileNav from '@/components/MobileNav'
 export const metadata: Metadata = {
   title: 'UtiliCalc (Free, 2026) – All-in-One Online Calculators & Converters',
   description: '50+ free online calculators and converters in one place. Calculate BMI, currency, tips, percentages, dates, and more. Fast, accurate, no signup — start now.',
+  keywords:
+    'online calculator, free calculator online, unit converter, percentage calculator, tip calculator, discount calculator, length converter, temperature converter, weight converter, cups to ml, fahrenheit to celsius, area calculator, speed converter, volume converter, all in one calculator',
   metadataBase: new URL('https://utilicalc.vercel.app'),
   openGraph: {
     title: 'UtiliCalc (Free, 2026) – All-in-One Online Calculators & Converters',
     description: '50+ free online calculators and converters in one place. Calculate BMI, currency, tips, percentages, dates, and more. Fast, accurate, no signup — start now.',
+  keywords:
+    'online calculator, free calculator online, unit converter, percentage calculator, tip calculator, discount calculator, length converter, temperature converter, weight converter, cups to ml, fahrenheit to celsius, area calculator, speed converter, volume converter, all in one calculator',
     type: 'website',
     siteName: 'UtiliCalc',
   },
@@ -20,9 +24,18 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UtiliCalc — 50+ Free Calculators',
     description: '50+ Free Calculators',
+  keywords:
+    'online calculator, free calculator online, unit converter, percentage calculator, tip calculator, discount calculator, length converter, temperature converter, weight converter, cups to ml, fahrenheit to celsius, area calculator, speed converter, volume converter, all in one calculator',
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: '/' },
+  alternates: {
+    canonical: 'https://utilicalc.vercel.app',
+    languages: {
+      'en': 'https://utilicalc.vercel.app',
+      'x-default': 'https://utilicalc.vercel.app',
+    },
+  },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -31,6 +44,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'SoftwareApplication',
     name: 'UtiliCalc - Free Online Calculators & Converters',
     description: 'All-in-one utility calculator hub. Free online calculators for BMI, currency, tips, percentages, dates, and unit conversions.',
+  keywords:
+    'online calculator, free calculator online, unit converter, percentage calculator, tip calculator, discount calculator, length converter, temperature converter, weight converter, cups to ml, fahrenheit to celsius, area calculator, speed converter, volume converter, all in one calculator',
     url: 'https://utilicalc.vercel.app',
     applicationCategory: 'UtilityApplication',
     operatingSystem: 'Web',
@@ -67,7 +82,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-P04TH8XJJ9');
           `}
         </Script>
-      </head>
+              {/* BreadcrumbList Schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://utilicalc.vercel.app"}, {"@type": "ListItem", "position": 2, "name": "UtiliCalc", "item": "https://utilicalc.vercel.app"}]})
+        }} />
+        {/* Organization & WebSite Schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "WebSite", "name": "UtiliCalc", "url": "https://utilicalc.vercel.app", "publisher": {"@type": "Organization", "name": "UtiliCalc Tools", "url": "https://utilicalc.vercel.app", "logo": {"@type": "ImageObject", "url": "https://utilicalc.vercel.app/favicon.svg"}}, "potentialAction": {"@type": "SearchAction", "target": "https://utilicalc.vercel.app/?q={search_term_string}", "query-input": "required name=search_term_string"}})
+        }} />
+        {/* Preconnect & DNS-Prefetch Hints */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        {/* Speakable Schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({"@context": "https://schema.org", "@type": "WebPage", "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", ".keyword-seo-section p"]}})
+        }} />
+</head>
       <body className="min-h-screen flex flex-col">
         <LanguageProvider>
           <Header />

@@ -16,7 +16,7 @@ export default function MobileNav() {
   const { t } = useLang()
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 safe-area-bottom">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/[0.03] border-t border-white/10 z-50 safe-area-bottom">
       <div className="flex justify-around items-center h-14">
         {tabs.map(tab => {
           const active = tab.href === '/'
@@ -27,7 +27,7 @@ export default function MobileNav() {
               key={tab.href}
               href={tab.href}
               className={`flex flex-col items-center gap-0.5 px-3 py-1 transition ${
-                active ? 'text-gray-800' : 'text-gray-400 hover:text-gray-600'
+                active ? 'text-gray-200' : 'text-gray-400 hover:text-gray-400'
               }`}
             >
               <span className="text-lg" dangerouslySetInnerHTML={{ __html: tab.icon }} />

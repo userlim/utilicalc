@@ -85,6 +85,14 @@ export default function HomeContent() {
           </div>
         </div>
       </section>
+
+      {/* Keyword-Optimized Content */}
+      <section id="keyword-seo-section" className="mt-8 max-w-3xl mx-auto">
+        <h2 className="text-lg font-bold mb-3" style={{ color: 'var(--text)' }}>Free Online Calculators &amp; Converters</h2>
+        <p className="text-sm text-gray-400 leading-relaxed">
+          Your all-in-one free calculator hub. 50+ calculators including percentage calculator, tip calculator, discount calculator, unit converter, and temperature converter. From cups to ml to fahrenheit to celsius — every calculation you need, all in one place.
+        </p>
+      </section>
     </>
   )
 }

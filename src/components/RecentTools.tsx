@@ -32,9 +32,9 @@ export default function RecentTools() {
           <Link
             key={tool!.slug}
             href={`/tools/${tool!.slug}`}
-            className="bg-white border border-gray-200 rounded-xl p-2.5 text-center hover:border-gray-300 transition group"
+            className="bg-white/[0.03] border border-white/10 rounded-xl p-2.5 text-center hover:border-white/10 transition group"
           >
-            <div className="text-sm font-semibold text-gray-700 group-hover:text-gray-900 transition truncate">
+            <div className="text-sm font-semibold text-gray-300 group-hover:text-gray-100 transition truncate">
               {t(tool!.slug)}
             </div>
             <div className="text-[10px] text-gray-300 mt-0.5">{t('tapToContinue')}</div>

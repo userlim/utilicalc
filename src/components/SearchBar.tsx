@@ -48,15 +48,15 @@ export default function SearchBar() {
         />
       </div>
       {open && filtered.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-1.5 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-72 overflow-y-auto">
+        <div className="absolute top-full left-0 right-0 mt-1.5 bg-white/[0.03] border border-white/10 rounded-xl shadow-lg z-50 max-h-72 overflow-y-auto">
           {filtered.map(tool => (
             <button
               key={tool.slug}
               onClick={() => go(tool.slug)}
-              className="w-full text-left px-4 py-2.5 hover:bg-gray-50 transition flex items-center gap-3 border-b border-gray-50 last:border-b-0"
+              className="w-full text-left px-4 py-2.5 hover:bg-white/[0.02] transition flex items-center gap-3 border-b border-gray-50 last:border-b-0"
             >
               <div>
-                <div className="font-semibold text-gray-800 text-sm">{tr(tool.slug)}</div>
+                <div className="font-semibold text-gray-200 text-sm">{tr(tool.slug)}</div>
                 <div className="text-xs text-gray-400">{tr(tool.categorySlug)}</div>
               </div>
             </button>
@@ -64,7 +64,7 @@ export default function SearchBar() {
         </div>
       )}
       {open && query.trim() && filtered.length === 0 && (
-        <div className="absolute top-full left-0 right-0 mt-1.5 bg-white border border-gray-200 rounded-xl shadow-lg z-50 p-3 text-center text-gray-400 text-sm">
+        <div className="absolute top-full left-0 right-0 mt-1.5 bg-white/[0.03] border border-white/10 rounded-xl shadow-lg z-50 p-3 text-center text-gray-400 text-sm">
           {tr('noResults')} &quot;{query}&quot;
         </div>
       )}

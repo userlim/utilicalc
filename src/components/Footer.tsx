@@ -8,20 +8,20 @@ export default function Footer() {
   const { t } = useLang()
 
   return (
-    <footer className="hidden md:block bg-white border-t border-gray-200 mt-auto">
+    <footer className="hidden md:block bg-white/[0.03] border-t border-white/10 mt-auto">
       <div className="max-w-5xl mx-auto px-4 py-6">
         <div className="flex flex-wrap justify-center gap-6 mb-4 text-sm text-gray-400">
           {categories.map(cat => (
-            <Link key={cat.slug} href={`/category/${cat.slug}`} className="hover:text-gray-600 transition">
+            <Link key={cat.slug} href={`/category/${cat.slug}`} className="hover:text-gray-400 transition">
               {t(cat.slug)}
             </Link>
           ))}
         </div>
         <div className="flex flex-wrap justify-center gap-6 mb-4 text-sm text-gray-400">
-          <Link href="/privacy-policy" className="hover:text-gray-600 transition">
+          <Link href="/privacy-policy" className="hover:text-gray-400 transition">
             Privacy Policy
           </Link>
-          <Link href="/terms" className="hover:text-gray-600 transition">
+          <Link href="/terms" className="hover:text-gray-400 transition">
             Terms of Service
           </Link>
         </div>
